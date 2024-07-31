@@ -1,0 +1,11 @@
+groups:
+- name: example_alerts
+  rules:
+  - alert: HighRequestRate
+    expr: rate(app_requests_total[1m]) > 5
+    for: 2m
+    labels:
+      severity: critical
+    annotations:
+      summary: "High request rate detected"
+      description: "Request rate is above 5 requests per minute for the last 2 minutes."
